@@ -16,5 +16,9 @@
     "socket.io-client": "^1.5.1",
     "uuid": "^2.0.3",
     "winston": "^2.3.0"
+  },
+  "bin":{
+    "hssh":"./bin/hssh",
+    "hssh-serve":"./bin/hssh-serve"
   }
 }
