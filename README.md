@@ -1,4 +1,9 @@
-#<span style="color:#336699">H</span>ttp(<span style="color:#336699">S</span>) <span style="color:#336699">SH</span>ell for Node.JS Web Server
+<style>
+.blue{
+color:#336699
+}
+</style>
+#<span class="blue">H</span>ttp(<span class="blue">S</span>) <span class="blue">SH</span>ell for Node.JS Web Server
 
 ##Introduction
 
