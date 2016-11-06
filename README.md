@@ -117,8 +117,16 @@ hssh is module based. All functionalities are plugable modules. This section giv
 
 Shell module is base module of hssh. The module will be started automatically once connection succeed. This grants local shell access on remote server.
 
-* Client will listen on keypress and send correcponding data to server
-* 
+Command:
+
+```
+hssh <url>
+```
+
+Below graph shows how shell module works under the hood:
+
+
+![](https://www.websequencediagrams.com/cgi-bin/cdraw?lz=dGl0bGUgSFNTSCBzaGVsbApVc2VyLT5DbGllbnQ6IFN0YXJ0IENvbm5lY3Rpb24KABMGLT5TZXJ2ZXI6AA8MAA0GLT5UZXJtaW5hbDogQ3JlYXRlIG5ldyBQc2V1ZG8gABQIACQJAGAJb2NrZXQgUmVhZHkAXAkAfghCaW5kIHN0ZGluL3N0ZG91dC9zdGRlcnIAgR4PS2V5cHJlc3MAgRQRABAJAIEREgArCQCBLggAgVEKAGUGAIEaEAAPBw&s=earth)
 
 ###Tunnel
 
@@ -129,6 +137,8 @@ hash -L <local_port>:<host>:<port> <server_url>
 ```
 
 This will forward <host>:<port> from remote to local port <local_port> (same as how SSH -L works)
+
+
 
 ##User Authentication
 TBD
