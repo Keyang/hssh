@@ -1,3 +1,4 @@
 module.exports={
-  tunnel:require("./tunnel")
+  tunnel:require("./tunnel"),
+  auth:require("./auth")
 }

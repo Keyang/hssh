@@ -1,7 +1,7 @@
 exports.get=get;
 exports.set=set;
 var def={
-  "SH":"bash"
+  "HSSH_SH":"bash"
 };
 
 var dynamic={
@@ -13,9 +13,4 @@ function get(key){
 }
 function set (key,val){
    dynamic[key]=val;
-}
-
-global.env={
-  get:get,
-  set:set
 }

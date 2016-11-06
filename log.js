@@ -7,5 +7,4 @@ var logger = new(winston.Logger)({
     })
   ]
 });
-global.log=logger;
 module.exports=logger;

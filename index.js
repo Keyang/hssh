@@ -1,4 +1,1 @@
-require("./global");
-module.exports=function(server){
-  require("./ws")(server);
-}
+module.exports=require("./ws");

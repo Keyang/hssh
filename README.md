@@ -134,6 +134,13 @@ Below graph shows how shell module works under the hood:
 
 ####Change Bash 
 
+By default, hssh uses `bash` as remote bash in terminal. However, this can be changed to any type of bash. Set environment variable `HSSH_SH` to the bash wanted.
+
+e.g. use `sh` 
+
+```
+HSSH_SH=sh node ./my_hssh_server
+```
 
 ###Tunnel
 
@@ -147,8 +154,71 @@ This will forward \<host\>:\<port\> from remote to local port \<local_port\> (sa
 
 
 
-##User Authentication
-TBD
+##HSSH Configuration
 
-##
+hssh has a bunch of configurations:
 
+* User authentication
+* Welcome banner information
+
+Just pass the parameter object as the second parameter when attaching to http.Server:
+
+```js
+require("hssh")(server,params);
+```
+
+###User Authentication
+
+User authentication is customised. By default, there is not user authentication and any connection can run the bash. To add user authentication, simply add `auth` field to hssh parameters.
+
+```js
+require("hssh")(server,{
+	auth:function(auth,cb){
+		//check auth.username and auth.password
+		// once validated, call cb(true) or cb(false)
+		// async auth is supported
+	}
+});
+```
+
+Once hssh server is configured with auth, `hssh` client will promt for username and password.
+
+```
+$ hssh http://127.0.0.1:8010
+Connecting to  http://127.0.0.1:8010
+Connection made
+Waiting for welcome message...
+Remote server requires login
+Username: test
+Password:
+
+Welcome to HssH server
+HssH Server version:  1.0.2
+Server available modules:  shell,tunnel
+bash-3.2$
+```
+
+If you want non-interactive, simply use `--auth` parameter:
+
+```
+$ hssh --auth test:test http://127.0.0.1:8010
+Connecting to  http://127.0.0.1:8010
+Connection made
+Waiting for welcome message...
+Remote server requires login
+Login using --auth parameter
+Welcome to HssH server
+HssH Server version:  1.0.2
+Server available modules:  shell,tunnel
+bash-3.2$
+```
+
+###Welcome banner text
+
+Welcome banner text will be displayed in the welcome information
+
+```js
+require("hssh")(server,{
+	banner:"Welcome to my server"
+});
+```

@@ -1,7 +1,8 @@
 module.exports=Shell;
 var pty = require('pty.js');
+var env=require("../../env");
 function Shell(socket,cfg){
-  var cmd=env.get("SH");
+  var cmd=env.get("HSSH_SH");
   var self=this;
   self.term=pty.spawn(cmd,[],{
       name: 'xterm-color',
@@ -11,7 +12,7 @@ function Shell(socket,cfg){
       env: process.env
   });
   self.bindSocket(socket);
-  self.term.on("exit",function(){
+  self.term.once("exit",function(){
     socket.disconnect()
   })
 
@@ -24,7 +25,7 @@ Shell.prototype.bindSocket=function(socket){
   });
   term.on("data",function(d){
     socket.emit("stdout",d);
-  })
+  });
 }
 
 Shell.prototype.terminate=function(){

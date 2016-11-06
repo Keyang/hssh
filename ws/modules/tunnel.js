@@ -1,5 +1,6 @@
 module.exports=Tunnel;
 var net=require("net");
+var log=require("../../log");
 function Tunnel(socket,cfg){
   if (cfg.params.modules.tunnel){
     this.sockets={};
