@@ -1,10 +1,12 @@
 #Http(S) SHell for Node.JS Web Server
 
-##What it is
+##Introduction
+
+###What it is
 
 It is a SSH like shell using WebSocket based on Http(s) to connect remote node.js web server.
 
-##Why
+###Why
 
 Couple reasons:
 
@@ -15,7 +17,7 @@ Couple reasons:
 * etc etc
 
 
-##What it can do
+###What it can do
 
 A lot of things:
 
@@ -25,6 +27,111 @@ A lot of things:
 * File transfer (TBD)
 * more
 
-##How does it work
+###How does it work
 
-hssh uses WebSockets as underlying communication channel. The clien
+hssh uses WebSockets as underlying communication channel. Client forwards CLI keypress to Server which further streams it to a bash process. Based on this idea, tunnel works similarly (by forwarding TCP pakcets). See simple diagram below:
+
+![hssh-diagram](https://github.com/Keyang/hssh/raw/assets/howitworks.png)
+
+###Is it secure
+
+WebSocket is using underlying Http(s) protocol. The data transportation will be encrypted with ssl if web server is under https.
+
+##Quick Start
+
+To use `hssh` you will need have:
+
+* Install `hssh` client
+* Enable node.js webserver with hssh support
+
+###Install `hssh` Client
+
+Install hssh through npm:
+
+```
+npm install -g hssh
+```
+
+The command will install hssh globally which includes cli command `hssh` and `hssh-serve`
+
+`hssh` is the main cli which connects remote web server. `hssh-serve` is a testing web server enabled with hssh support.
+
+###Enable Node.JS webserver with hssh support
+
+Use `hssh` as a module in node.js web application and attach hssh to node.js http.Server instance.
+
+First install `hssh` as a module
+
+```
+npm i hssh --save
+```
+
+Use with http.Server:
+
+```js
+var server=require("http").createServer(function handler(){});
+require("hssh")(server);
+server.listen(8080);
+```
+
+That's it! now the server is ready to be connected through hssh through:
+
+```
+hssh http://<server_host>:8080
+```
+
+####Express
+
+If express (>3.x) is used, simply do following:
+
+```js
+var app=require("express")();
+var server=require("http").Server(app);
+require("hssh")(server);
+
+//Define app routes
+
+server.listen(8080);
+
+```
+
+###Connect
+
+Once you have **both** hssh client installed and node.js web-server enabled, you are ready to connect. Simply:
+
+```
+hssh <server_url>
+```
+
+For more usage, see `hssh --help` or Modules section below.
+
+##Modules
+
+hssh is module based. All functionalities are plugable modules. This section gives the detailed usage of each module. Each module has 3 parts:
+
+* CLI parser: accept user input and convert into configuration
+* Client: manage local resource
+* Server: manage remote reosource
+
+###Shell
+
+Shell module is base module of hssh. The module will be started automatically once connection succeed. This grants local shell access on remote server.
+
+* Client will listen on keypress and send correcponding data to server
+* 
+
+###Tunnel
+
+You can forward port from remote to local:
+
+```
+hash -L <local_port>:<host>:<port> <server_url>
+```
+
+This will forward <host>:<port> from remote to local port <local_port> (same as how SSH -L works)
+
+##User Authentication
+TBD
+
+##
+
