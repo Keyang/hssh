@@ -1,6 +1,6 @@
 {
   "name": "hssh",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Http(S) Shell that works just like SSH",
   "main": "index.js",
   "scripts": {
@@ -20,5 +20,13 @@
   "bin":{
     "hssh":"./bin/hssh.js",
     "hssh-serve":"./bin/hssh-serve.js"
+  },
+  "engines": {
+    "node": ">=0.10"
+  },
+  "bugs": "https://github.com/Keyang/hssh/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Keyang/hssh.git"
   }
 }

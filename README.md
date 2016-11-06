@@ -1,4 +1,4 @@
-#Http(S) SHell for Node.JS Web Server
+#<span style="color:#336699">H</span>ttp(<span style="color:#336699">S</span>) <span style="color:#336699">SH</span>ell for Node.JS Web Server
 
 ##Introduction
 
@@ -130,6 +130,9 @@ Below graph shows how shell module works under the hood:
 
 ![](https://www.websequencediagrams.com/cgi-bin/cdraw?lz=dGl0bGUgSFNTSCBzaGVsbApVc2VyLT5DbGllbnQ6IFN0YXJ0IENvbm5lY3Rpb24KABMGLT5TZXJ2ZXI6AA8MAA0GLT5UZXJtaW5hbDogQ3JlYXRlIG5ldyBQc2V1ZG8gABQIACQJAGAJb2NrZXQgUmVhZHkAXAkAfghCaW5kIHN0ZGluL3N0ZG91dC9zdGRlcnIAgR4PS2V5cHJlc3MAgRQRABAJAIEREgArCQCBLggAgVEKAGUGAIEaEAAPBw&s=earth)
 
+####Change Bash 
+
+
 ###Tunnel
 
 You can forward port from remote to local:
@@ -138,7 +141,7 @@ You can forward port from remote to local:
 hash -L <local_port>:<host>:<port> <server_url>
 ```
 
-This will forward <host>:<port> from remote to local port <local_port> (same as how SSH -L works)
+This will forward \<host\>:\<port\> from remote to local port \<local_port\> (same as how SSH -L works)
 
 
 
