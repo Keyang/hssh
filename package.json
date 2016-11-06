@@ -18,7 +18,7 @@
     "winston": "^2.3.0"
   },
   "bin":{
-    "hssh":"./bin/hssh",
-    "hssh-serve":"./bin/hssh-serve"
+    "hssh":"./bin/hssh.js",
+    "hssh-serve":"./bin/hssh-serve.js"
   }
 }
