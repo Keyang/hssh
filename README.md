@@ -37,6 +37,8 @@ hssh uses WebSockets as underlying communication channel. Client forwards CLI ke
 
 WebSocket is using underlying Http(s) protocol. The data transportation will be encrypted with ssl if web server is under https.
 
+For user authentication, see User Authentication section below.
+
 ##Quick Start
 
 To use `hssh` you will need have:
