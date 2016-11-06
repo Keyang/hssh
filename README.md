@@ -1,15 +1,11 @@
-<style>
-.blue{
-color:#336699
-}
-</style>
-#<span class="blue">H</span>ttp(<span class="blue">S</span>) <span class="blue">SH</span>ell for Node.JS Web Server
+
+#Http(S) SHell for Node.JS Web Server
 
 ##Introduction
 
 ###What it is
 
-It is a SSH like shell using WebSocket based on Http(s) to connect remote node.js web server.
+hssh is a SSH like shell using WebSocket based on Http(s) to connect remote node.js web server. Features include remote terminal / port forwarding / file transfer etc.
 
 ###Why
 
@@ -19,6 +15,7 @@ Couple reasons:
 * Only port 80(443) being exposed
 * Need access internal servers like MYSQL / MongoDB through port 80(443)
 * Need transfer file between server and local
+* Need access backend services withing VPN or firewall.
 * etc etc
 
 
