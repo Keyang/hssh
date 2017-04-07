@@ -3,7 +3,6 @@ var log=require("../log");
 module.exports=function(io,params){
   return function(socket){
     log.info("New connection made.",socket.id);
-    var mInsts=[];
     if (params.auth){
       emitAuth(socket,params);
     }else{
@@ -49,10 +48,12 @@ function getModuleName(){
 }
 
 function onInit(socket,params){
-  return function(d){
+  return function(cfg){
     var mInsts=[];
     for (var key in modules){
-      mInsts.push(new modules[key](socket,d));
+      if (cfg.modules[key]!=undefined){
+        mInsts.push(new modules[key](socket,cfg));
+      }
     }
     socket.once("disconnect",function(){
       mInsts.forEach(function(m){

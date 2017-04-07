@@ -15,15 +15,11 @@ function onWelcome(socket, connObj) {
     console.log("HssH Server version: ", svr.version);
     console.log("Server available modules: ", svr.modules.join(","));
     for (var key in modules) {
-      modules[key](socket, connObj);
-    }
-    socket.emit("init", {
-      params: connObj,
-      size: {
-        rows: process.stdout.rows,
-        cols: process.stdout.columns
+      if (connObj.modules[key]!=undefined){
+        modules[key](socket, connObj);
       }
-    })
+    }
+    socket.emit("init", connObj);
   }
 }
 

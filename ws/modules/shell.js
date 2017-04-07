@@ -6,8 +6,8 @@ function Shell(socket,cfg){
   var self=this;
   self.term=pty.spawn(cmd,[],{
       name: 'xterm-color',
-      cols: cfg.size.cols,
-      rows: cfg.size.rows,
+      cols: cfg.modules.shell.cols,
+      rows: cfg.modules.shell.rows,
       cwd: process.env.HOME,
       env: process.env
   });

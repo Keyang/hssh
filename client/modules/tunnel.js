@@ -28,6 +28,10 @@ module.exports = function (socket, connObj) {
         socket.removeAllListeners("tunnel");
         socket.emit("tunnel-close", id);
       });
+      lsocket.on('error',function(e){
+        console.log(e);
+        
+      })
 
     })
       .on("error", function (e) {

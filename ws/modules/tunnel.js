@@ -2,9 +2,9 @@ module.exports=Tunnel;
 var net=require("net");
 var log=require("../../log");
 function Tunnel(socket,cfg){
-  if (cfg.params.modules.tunnel){
+  if (cfg.modules.tunnel){
     this.sockets={};
-    var tunnel=cfg.params.modules.tunnel;
+    var tunnel=cfg.modules.tunnel;
     this.host=tunnel.split(":")[1];
     this.port=tunnel.split(":")[2];
     this.bindSocket(socket);

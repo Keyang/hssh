@@ -4,7 +4,6 @@ var pkg = require("../package.json");
 var m=require("./modules");
 program.version(pkg.version);
 program.description("A WebSocket based shell client.");
-program.arguments("<url>");
 
 for (var key in m){
   m[key].setup(program);
