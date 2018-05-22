@@ -1,6 +1,6 @@
 {
   "name": "hssh",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Http(S) Shell that works just like SSH",
   "main": "index.js",
   "scripts": {
@@ -19,7 +19,7 @@
   "bin": {
     "hssh": "./bin/hssh.js",
     "hssh-serve": "./bin/hssh-serve.js",
-    "hcp":"./bin/hcp.js"
+    "hcp": "./bin/hcp.js"
   },
   "engines": {
     "node": ">=0.10"
