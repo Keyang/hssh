@@ -30,7 +30,6 @@ module.exports = function (socket, connObj) {
       });
       lsocket.on('error',function(e){
         console.log(e);
-        
       })
 
     })
